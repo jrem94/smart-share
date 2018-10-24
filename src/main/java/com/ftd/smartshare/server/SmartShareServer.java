@@ -2,8 +2,9 @@ package com.ftd.smartshare.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 
-import com.ftd.smartshare.client.commands.SmartShare;
+import com.ftd.smartshare.client.commands.RequestHandler;
 
 public class SmartShareServer {
     /* When a client connects to the server, the server should create a
@@ -16,11 +17,15 @@ public class SmartShareServer {
         		ServerSocket server = new ServerSocket(3000);
         	)
         {
-        	// Spin up a new thread using SmartShare and save the thread as t1.
-        	Thread t1 = new Thread(new SmartShare());
-        	// Start up the thread.
-        	t1.start();
-        	
+        	while(true) {
+	        	//listening for connection
+	        	//pass off to runnable
+	        	Socket clientSocket = server.accept();
+	        	// Spin up a new thread.
+	        	Thread clientThread = new Thread(new RequestHandler(clientSocket));
+	        	// Start up the thread.
+	        	clientThread.start();
+        	}
         } catch (IOException e) {
             e.printStackTrace();
         }

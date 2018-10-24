@@ -1,10 +1,10 @@
 package com.ftd.smartshare.client.commands.subcommands;
 
-import com.ftd.smartshare.utils.PasswordGenerator;
-import org.apache.commons.text.RandomStringGenerator;
-import picocli.CommandLine;
-
 import java.io.File;
+
+import com.ftd.smartshare.utils.PasswordGenerator;
+
+import picocli.CommandLine;
 
 @CommandLine.Command(
         description = "Uploads file using a given 'password', expiration (60 minutes by default), a max downloads (1 by default)",
@@ -24,6 +24,7 @@ public class Upload implements Runnable {
         System.out.println("Uploading: " + file.getAbsolutePath());
         System.out.println("Password will be printed below");
         System.out.println(password);
+        //call sending of DTO from DTO
     }
 
 

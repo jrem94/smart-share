@@ -21,8 +21,7 @@ import picocli.CommandLine;
         })
 public class SmartShare implements Runnable {
     public void run() {
-//        CommandLine cl = new CommandLine(new SmartShare());
-//        cl.usage(System.out);
-    	System.out.println("Smartshare is connected and running");
+        CommandLine cl = new CommandLine(new SmartShare());
+        cl.usage(System.out);
     }
 }
