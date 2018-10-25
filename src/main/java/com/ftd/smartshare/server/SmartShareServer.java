@@ -23,8 +23,11 @@ public class SmartShareServer {
 	        	Socket clientSocket = server.accept();
 	        	// Spin up a new thread.
 	        	Thread clientThread = new Thread(new RequestHandler(clientSocket));
+	        	// Wait until dto has been passed to server side
+//	        	if(RequestHandler.getDto() != null) {
+	        		clientThread.start();
+//	        	}
 	        	// Start up the thread.
-	        	clientThread.start();
         	}
         } catch (IOException e) {
             e.printStackTrace();

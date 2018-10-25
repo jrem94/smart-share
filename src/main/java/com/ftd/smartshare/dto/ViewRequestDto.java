@@ -6,7 +6,7 @@ import java.util.Arrays;
 import javax.xml.bind.annotation.*;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DownloadRequestDto {
+public class ViewRequestDto {
 
 	@XmlValue
 	String fileName;
@@ -23,14 +23,14 @@ public class DownloadRequestDto {
 	@XmlValue
 	int total_downloads;
 	
-	public DownloadRequestDto(){}
+	public ViewRequestDto(){}
 	
-	public DownloadRequestDto(String fileName, String password){
+	public ViewRequestDto(String fileName, String password){
 		this.fileName = fileName;
 		this.password = password;
 	}
 	
-	public DownloadRequestDto(String fileName, String password, byte[] file, Timestamp time_created, Timestamp expiry_time,
+	public ViewRequestDto(String fileName, String password, byte[] file, Timestamp time_created, Timestamp expiry_time,
 			int max_downloads, int total_downloads) {
 		super();
 		this.fileName = fileName;
@@ -42,7 +42,7 @@ public class DownloadRequestDto {
 		this.total_downloads = total_downloads;
 	}
 
-	public DownloadRequestDto(String file_name, byte[] file, Timestamp time_created,
+	public ViewRequestDto(String file_name, byte[] file, Timestamp time_created,
 			Timestamp expiry_time, int max_downloads, int total_downloads){
 		
 	}
@@ -105,9 +105,10 @@ public class DownloadRequestDto {
 
 	@Override
 	public String toString() {
-		return "DownloadRequestDto [fileName=" + fileName + ", password=" + password + ", file=" + Arrays.toString(file)
+		return "ViewRequestDto [fileName=" + fileName + ", password=" + password + ", file=" + Arrays.toString(file)
 				+ ", time_created=" + time_created + ", expiry_time=" + expiry_time + ", max_downloads=" + max_downloads
 				+ ", total_downloads=" + total_downloads + "]";
 	}
+	
 	
 }

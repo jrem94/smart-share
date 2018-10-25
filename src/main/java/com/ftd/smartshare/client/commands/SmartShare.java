@@ -2,6 +2,8 @@ package com.ftd.smartshare.client.commands;
 
 import com.ftd.smartshare.client.commands.subcommands.Download;
 import com.ftd.smartshare.client.commands.subcommands.Upload;
+import com.ftd.smartshare.client.commands.subcommands.View;
+
 import picocli.CommandLine;
 
 // TODO The customSynopsis needs to be updated if the commands are updated
@@ -13,11 +15,13 @@ import picocli.CommandLine;
         customSynopsis = {
                 "\nsmartshare [-hV] [COMMAND]",
                 "smartshare [upload|u] <file> [password]",
-                "smartshare [download|d] <file> <password>\n"
+                "smartshare [download|d] <fileName> <password>,",
+                "smartshare [view|v] <fileName> <password>\n"
         },
         subcommands = {
                 Download.class,
-                Upload.class
+                Upload.class,
+                View.class
         })
 public class SmartShare implements Runnable {
     public void run() {
