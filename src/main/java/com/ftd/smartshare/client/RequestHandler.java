@@ -25,7 +25,7 @@ public class RequestHandler implements Runnable {
 			Object o = ois.readObject();
 
 			if (o instanceof DownloadRequestDto) {
-				System.out.println("DRD obtained");
+				System.out.println("Download successfully passed to Request Handler");
 				try {
 					DownloadRequestDto dwnDto = (DownloadRequestDto) o;
 					FileDao.downloadFile(dwnDto);
@@ -33,7 +33,7 @@ public class RequestHandler implements Runnable {
 					e.printStackTrace();
 				}
 			} else if (o instanceof UploadRequestDto) {
-				System.out.println("URD obtained");
+				System.out.println("Upload DTO successfully passed to Request Handler");
 				try {
 					UploadRequestDto upDto = (UploadRequestDto) o;
 					FileDao.uploadFile(upDto);
@@ -41,7 +41,7 @@ public class RequestHandler implements Runnable {
 					e.printStackTrace();
 				}
 			} else if (o instanceof ViewRequestDto) {
-				System.out.println("VRD obtained");
+				System.out.println("View DTO successfully passed to Request Handler");
 				try {
 					ViewRequestDto viewDto = (ViewRequestDto) o;
 					FileDao.viewFile(viewDto);

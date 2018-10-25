@@ -26,6 +26,7 @@ public class FileDao {
 	}
 
 	public static ViewRequestDto viewFile(ViewRequestDto object) {
+		System.out.println("Dao > viewFile method rached");
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -51,6 +52,7 @@ public class FileDao {
 	}
 
 	public static UploadRequestDto uploadFile(UploadRequestDto object) {
+		System.out.println("Dao > uploadFile method rached");
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -84,6 +86,7 @@ public class FileDao {
 	}
 
 	public static DownloadRequestDto downloadFile(DownloadRequestDto object) {
+		System.out.println("Dao > downloadFile method rached");
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
