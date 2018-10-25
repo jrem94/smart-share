@@ -17,7 +17,6 @@ public class FileDao {
 	private static final String PASSWORD = "bondstone";
 	
 	public FileDao() {
-
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
