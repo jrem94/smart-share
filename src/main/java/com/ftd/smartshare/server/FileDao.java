@@ -12,7 +12,7 @@ import com.ftd.smartshare.dto.ViewRequestDto;
 
 public class FileDao {
 
-	private static final String URL = "jdbc:postgresql:/localhost:5432/postgres/smartshare";
+	private static final String URL = "jdbc:postgresql://localhost:5432/postgres/smartshare";
 	private static final String USER = "postgres";
 	private static final String PASSWORD = "bondstone";
 	
