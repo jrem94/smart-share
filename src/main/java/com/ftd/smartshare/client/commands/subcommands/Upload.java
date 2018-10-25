@@ -2,6 +2,8 @@ package com.ftd.smartshare.client.commands.subcommands;
 
 import java.io.File;
 
+import com.ftd.smartshare.client.api.Api;
+import com.ftd.smartshare.dto.UploadRequestDto;
 import com.ftd.smartshare.utils.PasswordGenerator;
 
 import picocli.CommandLine;
@@ -24,7 +26,8 @@ public class Upload implements Runnable {
         System.out.println("Uploading: " + file.getAbsolutePath());
         System.out.println("Password will be printed below");
         System.out.println(password);
-        //call sending of DTO from DTO
+        UploadRequestDto upDto = new UploadRequestDto(file, password);
+        Api.upload(upDto);
     }
 
 

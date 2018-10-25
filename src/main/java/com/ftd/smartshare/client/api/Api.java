@@ -1,5 +1,9 @@
 package com.ftd.smartshare.client.api;
 
+import java.io.IOException;
+import java.net.Socket;
+
+import com.ftd.smartshare.client.RequestHandler;
 import com.ftd.smartshare.dto.DownloadRequestDto;
 import com.ftd.smartshare.dto.UploadRequestDto;
 import com.ftd.smartshare.utils.NotImplementedException;
@@ -20,7 +24,16 @@ public final class Api {
      * @return true if request was successful and false if unsuccessful
      */
     public static boolean download(DownloadRequestDto downloadRequestDto) {
-        throw new NotImplementedException();
+    	try {
+    		//bind to server socket in SmartShareServer
+			new Socket(HOST, PORT);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	//return true if successfully uploaded to database
+    	//return false otherwise
+    	return false;
     }
 
     /**
@@ -30,7 +43,16 @@ public final class Api {
      * @return true if request was successful and false if unsuccessful
      */
     public static boolean upload(UploadRequestDto uploadRequestDto) {
-        throw new NotImplementedException();
+    	try {
+    		//bind to server socket in SmartShareServer
+    		//connect to server side
+			new Socket(HOST, PORT);
+			RequestHandler.setDto(uploadRequestDto);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	//return true if successfully uploaded to database
+    	//return false otherwise
+    	return false;
     }
-
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.ftd.smartshare.client.commands.RequestHandler;
+import com.ftd.smartshare.client.RequestHandler;
 
 public class SmartShareServer {
     /* When a client connects to the server, the server should create a
