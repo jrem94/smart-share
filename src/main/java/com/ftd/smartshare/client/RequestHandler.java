@@ -1,12 +1,10 @@
 package com.ftd.smartshare.client;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class RequestHandler implements Runnable{
 
+	@SuppressWarnings("unused")
 	private Socket clientSocket;
 	private static Object object;
 	

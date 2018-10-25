@@ -27,7 +27,7 @@ public final class Api {
     	try {
     		//bind to server socket in SmartShareServer
 			new Socket(HOST, PORT);
-			
+			RequestHandler.setDto(downloadRequestDto);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
