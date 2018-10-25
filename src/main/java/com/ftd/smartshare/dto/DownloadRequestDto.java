@@ -1,37 +1,29 @@
 package com.ftd.smartshare.dto;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
-import javax.xml.bind.annotation.*;
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class DownloadRequestDto {
+public class DownloadRequestDto implements Serializable {
 
-	@XmlValue
-	String fileName;
-	@XmlValue
-	String password;
-	@XmlValue
-	byte[] file;
-	@XmlValue
-	Timestamp time_created;
-	@XmlValue
-	Timestamp expiry_time;
-	@XmlValue
-	int max_downloads;
-	@XmlValue
-	int total_downloads;
-	
-	public DownloadRequestDto(){}
-	
-	public DownloadRequestDto(String fileName, String password){
+	private String fileName;
+	private String password;
+	private byte[] file;
+	private Timestamp time_created;
+	private Timestamp expiry_time;
+	private int max_downloads;
+	private int total_downloads;
+
+	public DownloadRequestDto() {
+	}
+
+	public DownloadRequestDto(String fileName, String password) {
 		this.fileName = fileName;
 		this.password = password;
 	}
-	
-	public DownloadRequestDto(String fileName, String password, byte[] file, Timestamp time_created, Timestamp expiry_time,
-			int max_downloads, int total_downloads) {
+
+	public DownloadRequestDto(String fileName, String password, byte[] file, Timestamp time_created,
+			Timestamp expiry_time, int max_downloads, int total_downloads) {
 		super();
 		this.fileName = fileName;
 		this.password = password;
@@ -42,9 +34,9 @@ public class DownloadRequestDto {
 		this.total_downloads = total_downloads;
 	}
 
-	public DownloadRequestDto(String file_name, byte[] file, Timestamp time_created,
-			Timestamp expiry_time, int max_downloads, int total_downloads){
-		
+	public DownloadRequestDto(String file_name, byte[] file, Timestamp time_created, Timestamp expiry_time,
+			int max_downloads, int total_downloads) {
+
 	}
 
 	public String getFileName() {
@@ -109,5 +101,5 @@ public class DownloadRequestDto {
 				+ ", time_created=" + time_created + ", expiry_time=" + expiry_time + ", max_downloads=" + max_downloads
 				+ ", total_downloads=" + total_downloads + "]";
 	}
-	
+
 }

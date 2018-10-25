@@ -26,7 +26,7 @@ public class Upload implements Runnable {
         System.out.println("Uploading: " + file.getAbsolutePath());
         System.out.println("Password will be printed below");
         System.out.println(password);
-        UploadRequestDto upDto = new UploadRequestDto(file, password);
+        UploadRequestDto upDto = new UploadRequestDto(file.getAbsolutePath(), password);
         Api.upload(upDto);
     }
 

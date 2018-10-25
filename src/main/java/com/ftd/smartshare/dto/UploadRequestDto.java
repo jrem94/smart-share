@@ -1,53 +1,44 @@
 package com.ftd.smartshare.dto;
+
 import java.io.File;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlValue;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class UploadRequestDto {
-	
-	@XmlValue
-	String fileName;
-	@XmlValue
-	String password;
-	@XmlValue
-	File file;
-	@XmlValue
-	Timestamp time_created;
-	@XmlValue
-	Timestamp expiry_time;
-	@XmlValue
-	int max_downloads;
-	@XmlValue
-	int total_downloads;
-	
-	public UploadRequestDto(){}
-	
-	public UploadRequestDto(File file, String password){
-		this.file = file;
+public class UploadRequestDto implements Serializable {
+
+	private String fileName;
+	private String password;
+	private byte[] file;
+	private Timestamp timeCreated;
+	private Timestamp expiryTime;
+	private int maxDownloads;
+	private int totalDownloads;
+	private String path;
+
+	public UploadRequestDto() {
+	}
+
+	public UploadRequestDto(String path, String password) {
+		this.path = path;
 		this.password = password;
 	}
-	
-	public UploadRequestDto(String fileName, String password, File file, Timestamp time_created, Timestamp expiry_time,
-			int max_downloads, int total_downloads) {
+
+	public UploadRequestDto(String fileName, String password, byte[] file, Timestamp time_created,
+			Timestamp expiry_time, int max_downloads, int total_downloads) {
 		super();
 		this.fileName = fileName;
 		this.password = password;
 		this.file = file;
-		this.time_created = time_created;
-		this.expiry_time = expiry_time;
-		this.max_downloads = max_downloads;
-		this.total_downloads = total_downloads;
+		this.timeCreated = time_created;
+		this.expiryTime = expiry_time;
+		this.maxDownloads = max_downloads;
+		this.totalDownloads = total_downloads;
 	}
 
-	public UploadRequestDto(String file_name, File file, Timestamp time_created,
-			Timestamp expiry_time, int max_downloads, int total_downloads){
-		
+	public UploadRequestDto(String file_name, File file, Timestamp time_created, Timestamp expiry_time,
+			int max_downloads, int total_downloads) {
+
 	}
 
 	public String getFileName() {
@@ -66,50 +57,59 @@ public class UploadRequestDto {
 		this.password = password;
 	}
 
-	public File getFile() {
+	public byte[] getFile() {
 		return file;
 	}
 
-	public void setFile(File file) {
+	public void setFile(byte[] file) {
 		this.file = file;
 	}
 
-	public Timestamp getTime_created() {
-		return time_created;
+	public Timestamp getTimeCreated() {
+		return timeCreated;
 	}
 
-	public void setTime_created(Timestamp time_created) {
-		this.time_created = time_created;
+	public void setTimeCreated(Timestamp timeCreated) {
+		this.timeCreated = timeCreated;
 	}
 
-	public Timestamp getExpiry_time() {
-		return expiry_time;
+	public Timestamp getExpiryTime() {
+		return expiryTime;
 	}
 
-	public void setExpiry_time(Timestamp expiry_time) {
-		this.expiry_time = expiry_time;
+	public void setExpiryTime(Timestamp expiryTime) {
+		this.expiryTime = expiryTime;
 	}
 
-	public int getMax_downloads() {
-		return max_downloads;
+	public int getMaxDownloads() {
+		return maxDownloads;
 	}
 
-	public void setMax_downloads(int max_downloads) {
-		this.max_downloads = max_downloads;
+	public void setMaxDownloads(int maxDownloads) {
+		this.maxDownloads = maxDownloads;
 	}
 
-	public int getTotal_downloads() {
-		return total_downloads;
+	public int getTotalDownloads() {
+		return totalDownloads;
 	}
 
-	public void setTotal_downloads(int total_downloads) {
-		this.total_downloads = total_downloads;
+	public void setTotalDownloads(int totalDownloads) {
+		this.totalDownloads = totalDownloads;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	@Override
 	public String toString() {
-		return "UploadRequestDto [fileName=" + fileName + ", password=" + password + ", file=" + file
-				+ ", time_created=" + time_created + ", expiry_time=" + expiry_time + ", max_downloads=" + max_downloads
-				+ ", total_downloads=" + total_downloads + "]";
+		return "UploadRequestDto [fileName=" + fileName + ", password=" + password + ", file=" + Arrays.toString(file)
+				+ ", timeCreated=" + timeCreated + ", expiryTime=" + expiryTime + ", maxDownloads=" + maxDownloads
+				+ ", totalDownloads=" + totalDownloads + ", path=" + path + "]";
 	}
+
 }

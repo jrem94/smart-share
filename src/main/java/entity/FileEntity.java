@@ -3,7 +3,7 @@ package entity;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
-public class File {
+public class FileEntity {
 
 	private long id;
 	private String file_name;
@@ -13,22 +13,19 @@ public class File {
 	private int max_downloads;
 	private int total_downloads;
 	private String password;
-	
-	public File() {}
-	
-	
 
-	public File(String file_name, byte[] file, String password) {
+	public FileEntity() {
+	}
+
+	public FileEntity(String file_name, byte[] file, String password) {
 		super();
 		this.file_name = file_name;
 		this.file = file;
 		this.password = password;
 	}
 
-
-
-	public File(String file_name, byte[] file, Timestamp time_created, Timestamp expiry_time,
-			int max_downloads, int total_downloads, String password) {
+	public FileEntity(String file_name, byte[] file, Timestamp time_created, Timestamp expiry_time, int max_downloads,
+			int total_downloads, String password) {
 		super();
 		this.file_name = file_name;
 		this.file = file;
@@ -95,8 +92,6 @@ public class File {
 		this.password = password;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "File [id=" + id + ", file_name=" + file_name + ", file=" + Arrays.toString(file) + ", time_created="
@@ -104,5 +99,4 @@ public class File {
 				+ ", total_downloads=" + total_downloads + ", password=" + password + "]";
 	}
 
-	
 }
